@@ -2,10 +2,13 @@
 
   "HomePage" : {
 
-    "SubHeader": " The evolution of our storied brand continues."
+    "SubHeader": "The evolution of our storied brand continues."
 
+  },
 
+  "AboutPage": {
 
+    "SubHeader" : "We are Paramount"
 
   }
 
