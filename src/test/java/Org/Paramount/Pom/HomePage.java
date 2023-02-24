@@ -96,4 +96,11 @@ public class HomePage extends BasePage {
         return new GlobalBrandsPage(driver);
     }
 
+    public NewsPage clickNewsSection() {
+
+        myheader.clickNewsSection();
+
+        return new NewsPage(driver);
+    }
+
 }

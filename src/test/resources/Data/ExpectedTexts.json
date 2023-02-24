@@ -16,7 +16,14 @@
 "BrandsPage" : {
 
   "SubHeader" : "Global Brands"
+},
+
+  "NewsPage" : {
+
+  "NewsPgURL" : "https://www.paramount.com/news"
+
 }
+
 
 
 

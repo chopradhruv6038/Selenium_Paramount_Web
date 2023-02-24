@@ -4,6 +4,7 @@ import Org.Paramount.Base.BaseTest;
 import Org.Paramount.Pom.AboutPage;
 import Org.Paramount.Pom.GlobalBrandsPage;
 import Org.Paramount.Pom.HomePage;
+import Org.Paramount.Pom.NewsPage;
 import Org.Paramount.Utils.TestUtils;
 import com.google.gson.JsonObject;
 import io.qameta.allure.Story;
@@ -24,6 +25,7 @@ public class ParamountTests extends BaseTest {
     HomePage homePage;
     AboutPage aboutPage;
     GlobalBrandsPage globalBrandsPage;
+    NewsPage newsPage;
 
 
     Properties props;
@@ -72,6 +74,7 @@ public class ParamountTests extends BaseTest {
         homePage = new HomePage(getDriver());
         aboutPage = new AboutPage(getDriver());
         globalBrandsPage = new GlobalBrandsPage(getDriver());
+        newsPage = new NewsPage(getDriver());
 
         testUtils.log().info(m.getName());
 
@@ -80,7 +83,7 @@ public class ParamountTests extends BaseTest {
 
     @Story("This test validates Main header, paramount icon, sub header and footer is displayed on home page")
     @Test
-    public void validateHomePage() {
+    public synchronized void validateHomePage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
         homePage.assertParamountIconHmPg().assertMainHeaderIsDisplayed()
@@ -91,7 +94,7 @@ public class ParamountTests extends BaseTest {
 
     @Story("This test validates user is able to navigate to about page and its content")
     @Test (priority = 1)
-    public void validateAboutPage() {
+    public synchronized void validateAboutPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
         aboutPage = homePage.clickAboutSection();
@@ -103,7 +106,7 @@ public class ParamountTests extends BaseTest {
 
     @Story("This test validates navigation to Global brands page and its content")
     @Test (priority = 2)
-    public void validateBrandsPage() {
+    public synchronized void validateBrandsPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
         globalBrandsPage = homePage.clickGlobalBrandSection();
@@ -112,5 +115,15 @@ public class ParamountTests extends BaseTest {
 
     }
 
+    @Story("This test validates navigation to news page")
+    @Test (priority = 3)
+    public synchronized void validateNewsPage() {
+
+        homePage.loadUrl(props.getProperty("paramountUrl"));
+        newsPage = homePage.clickNewsSection();
+        newsPage.assertNewsPgUrl(ExpectedData.getJSONObject("NewsPage").getString("NewsPgURL"));
+
+
+    }
 
 }

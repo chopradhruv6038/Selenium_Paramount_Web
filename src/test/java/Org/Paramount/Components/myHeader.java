@@ -15,6 +15,9 @@ public class myHeader extends BasePage {
     By mainHeader = By.xpath("//ul[@class='coh-list-container coh-unordered-list navbar-nav ml-auto']");
     By aboutSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/about']");
     By brandSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/brands']");
+    By newsSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/news']");
+
+
 
 
     public void assertMainHdrIsDisplayed(){
@@ -25,7 +28,7 @@ public class myHeader extends BasePage {
 
  }
 
- public void clickAboutSection(){
+ public synchronized void clickAboutSection(){
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(aboutSection)).click();
 
@@ -35,6 +38,12 @@ public class myHeader extends BasePage {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(brandSection)).click();
 
+ }
+
+ public void clickNewsSection(){
+
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(newsSection)).click();
  }
 
 }

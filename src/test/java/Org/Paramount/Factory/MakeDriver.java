@@ -12,7 +12,7 @@ public class MakeDriver {
     protected WebDriver driver;
 
     @Parameters({"Browser"})
-    public WebDriver initializeDriver(String Browser) {
+    public synchronized WebDriver initializeDriver(String Browser) {
 
         switch (Browser) {
 

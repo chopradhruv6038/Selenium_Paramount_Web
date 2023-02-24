@@ -33,7 +33,7 @@ public class BaseTest {
 
     @Parameters({"Browser"})
     @BeforeMethod
-    public void StartDriver(String Browser) {
+    public synchronized void StartDriver(String Browser) {
 
         setDriver(new MakeDriver().initializeDriver(Browser));
 
