@@ -2,6 +2,7 @@ package Org.Paramount.Tests;
 
 import Org.Paramount.Base.BaseTest;
 import Org.Paramount.Pom.AboutPage;
+import Org.Paramount.Pom.GlobalBrandsPage;
 import Org.Paramount.Pom.HomePage;
 import Org.Paramount.Utils.TestUtils;
 import com.google.gson.JsonObject;
@@ -22,6 +23,7 @@ public class ParamountTests extends BaseTest {
     TestUtils testUtils;
     HomePage homePage;
     AboutPage aboutPage;
+    GlobalBrandsPage globalBrandsPage;
 
 
     Properties props;
@@ -69,6 +71,7 @@ public class ParamountTests extends BaseTest {
         testUtils = new TestUtils();
         homePage = new HomePage(getDriver());
         aboutPage = new AboutPage(getDriver());
+        globalBrandsPage = new GlobalBrandsPage(getDriver());
 
         testUtils.log().info(m.getName());
 
@@ -88,12 +91,26 @@ public class ParamountTests extends BaseTest {
 
     @Story("This test validates user is able to navigate to about page and its content")
     @Test (priority = 1)
-    public void validateAboutPage(){
+    public void validateAboutPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
         aboutPage = homePage.clickAboutSection();
-        aboutPage.assertAboutPageSubHeader(ExpectedData.getJSONObject("AboutPage").getString("SubHeader"));
+        aboutPage.assertUrl(ExpectedData.getJSONObject("AboutPage").getString("AboutPageUrl"))
+                .assertAboutPageSubHeader(ExpectedData.getJSONObject("AboutPage").getString("SubHeader"));
 
     }
+
+
+    @Story("This test validates navigation to Global brands page and its content")
+    @Test (priority = 2)
+    public void validateBrandsPage() {
+
+        homePage.loadUrl(props.getProperty("paramountUrl"));
+        globalBrandsPage = homePage.clickGlobalBrandSection();
+        globalBrandsPage.assertBrandsPgSubHeader(ExpectedData.getJSONObject("BrandsPage").getString("SubHeader"));
+
+
+    }
+
 
 }

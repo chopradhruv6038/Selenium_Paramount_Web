@@ -35,9 +35,17 @@ public AboutPage assertAboutPageSubHeader(String txt){
 
     Assert.assertEquals(getActualSubHeaderText(), expectedAboutPgSubHeader(txt));
     Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(aboutPageSubHeader)).isDisplayed());
-    testUtils.log().info("Actual About page sub header : " + getActualSubHeaderText() + "Expected About page sub header : " + expectedAboutPgSubHeader(txt) );
+    testUtils.log().info("\nActual About page sub header : " + getActualSubHeaderText() + "\nExpected About page sub header : " + expectedAboutPgSubHeader(txt) );
 
     return this;
+}
+
+public AboutPage assertUrl(String txt){
+
+    Assert.assertEquals(driver.getCurrentUrl(), txt);
+
+    return this;
+
 }
 
 }

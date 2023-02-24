@@ -8,11 +8,15 @@
 
   "AboutPage": {
 
-    "SubHeader" : "We are Paramount"
+    "SubHeader" : "We are Paramount",
+    "AboutPageUrl" : "https://www.paramount.com/about"
 
-  }
+  },
 
+"BrandsPage" : {
 
+  "SubHeader" : "Global Brands"
+}
 
 
 

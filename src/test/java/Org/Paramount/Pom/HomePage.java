@@ -68,20 +68,20 @@ public class HomePage extends BasePage {
     public HomePage assertHmPgSubheader(String subheader) {
 
         Assert.assertEquals(getActualHmPgSubHeader(), expectedHmPgSubHeader(subheader));
-        testUtils.log().info("\nActual Sub Header : " + getActualHmPgSubHeader() + "\nExpected Sub Header : " + expectedHmPgSubHeader(subheader) );
+        testUtils.log().info("\nActual Sub Header : " + getActualHmPgSubHeader() + "\nExpected Sub Header : " + expectedHmPgSubHeader(subheader));
 
         return this;
 
     }
 
-    public HomePage assertSocialFooterIsDisplayed(){
+    public HomePage assertSocialFooterIsDisplayed() {
 
         myfooter.assertSocialFooter();
 
         return this;
     }
 
-    public AboutPage clickAboutSection(){
+    public AboutPage clickAboutSection() {
 
         myheader.clickAboutSection();
 
@@ -89,6 +89,11 @@ public class HomePage extends BasePage {
 
     }
 
+    public GlobalBrandsPage clickGlobalBrandSection() {
 
+        myheader.clickBrandSection();
+
+        return new GlobalBrandsPage(driver);
+    }
 
 }
