@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
+import java.security.PublicKey;
+
 public class HomePage extends BasePage {
 
     protected myHeader myheader;
@@ -102,5 +104,27 @@ public class HomePage extends BasePage {
 
         return new NewsPage(driver);
     }
+
+    public CareerPage clickCareerSection(){
+
+        myheader.clickCareerSection();
+
+        return new CareerPage(driver);
+    }
+
+    public InvestorsPage clickInvestorsPage(){
+
+        myheader.clickInvestorsSection();
+
+        return new InvestorsPage(driver);
+    }
+
+    public ParamountPlusPage clickParamountSection(){
+
+        myheader.clickParamountPlusSection();
+
+        return new ParamountPlusPage(driver);
+    }
+
 
 }

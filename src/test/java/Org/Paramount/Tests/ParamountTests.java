@@ -1,10 +1,7 @@
 package Org.Paramount.Tests;
 
 import Org.Paramount.Base.BaseTest;
-import Org.Paramount.Pom.AboutPage;
-import Org.Paramount.Pom.GlobalBrandsPage;
-import Org.Paramount.Pom.HomePage;
-import Org.Paramount.Pom.NewsPage;
+import Org.Paramount.Pom.*;
 import Org.Paramount.Utils.TestUtils;
 import com.google.gson.JsonObject;
 import io.qameta.allure.Story;
@@ -26,6 +23,10 @@ public class ParamountTests extends BaseTest {
     AboutPage aboutPage;
     GlobalBrandsPage globalBrandsPage;
     NewsPage newsPage;
+    CareerPage careerPage;
+    InvestorsPage investorsPage;
+    ParamountPlusPage paramountPlusPage;
+
 
 
     Properties props;
@@ -75,6 +76,9 @@ public class ParamountTests extends BaseTest {
         aboutPage = new AboutPage(getDriver());
         globalBrandsPage = new GlobalBrandsPage(getDriver());
         newsPage = new NewsPage(getDriver());
+        careerPage = new CareerPage(getDriver());
+        investorsPage = new InvestorsPage(getDriver());
+        paramountPlusPage = new ParamountPlusPage(getDriver());
 
         testUtils.log().info(m.getName());
 
@@ -93,7 +97,7 @@ public class ParamountTests extends BaseTest {
     }
 
     @Story("This test validates user is able to navigate to about page and its content")
-    @Test (priority = 1)
+    @Test(priority = 1)
     public synchronized void validateAboutPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
@@ -105,7 +109,7 @@ public class ParamountTests extends BaseTest {
 
 
     @Story("This test validates navigation to Global brands page and its content")
-    @Test (priority = 2)
+    @Test(priority = 2)
     public synchronized void validateBrandsPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
@@ -116,13 +120,46 @@ public class ParamountTests extends BaseTest {
     }
 
     @Story("This test validates navigation to news page")
-    @Test (priority = 3)
+    @Test(priority = 3)
     public synchronized void validateNewsPage() {
 
         homePage.loadUrl(props.getProperty("paramountUrl"));
         newsPage = homePage.clickNewsSection();
         newsPage.assertNewsPgUrl(ExpectedData.getJSONObject("NewsPage").getString("NewsPgURL"));
 
+
+    }
+
+    @Story("This test validates navigation to Career page")
+    @Test(priority = 4)
+    public synchronized void validateCareerPage() {
+
+        homePage.loadUrl(props.getProperty("paramountUrl"));
+
+        careerPage = homePage.clickCareerSection();
+        careerPage.assertCareerPageUrl(ExpectedData.getJSONObject("CareerPage").getString("CareerPagUrl"));
+
+
+    }
+
+    @Story("This test validates navigation to Investors page")
+    @Test(priority = 5)
+    public synchronized void validateInvestorPage() {
+
+        homePage.loadUrl(props.getProperty("paramountUrl"));
+        investorsPage = homePage.clickInvestorsPage();
+        investorsPage.assertInvestorPgUrl(ExpectedData.getJSONObject("InvestorsPage").getString("InvestorsPgUrl"));
+
+
+    }
+
+    @Story("This test validates navigation to ParamountPlus page")
+    @Test(priority = 6)
+    public synchronized void validateParamountPlusPage() {
+
+        homePage.loadUrl(props.getProperty("paramountUrl"));
+        paramountPlusPage = homePage.clickParamountSection();
+        paramountPlusPage.assertParamountPlusPgUrl(ExpectedData.getJSONObject("ParamountPlusPage").getString("ParamountPgUrl"));
 
     }
 

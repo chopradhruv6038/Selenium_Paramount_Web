@@ -22,7 +22,25 @@
 
   "NewsPgURL" : "https://www.paramount.com/news"
 
-}
+},
+
+  "CareerPage": {
+
+    "CareerPagUrl" : "https://www.paramount.com/careers/experienced"
+
+  },
+
+  "InvestorsPage" : {
+
+    "InvestorsPgUrl" : "https://ir.paramount.com/"
+
+  },
+
+  "ParamountPlusPage" : {
+
+    "ParamountPgUrl" : "https://www.paramountplus.com/intl/"
+
+  }
 
 
 

@@ -16,6 +16,9 @@ public class myHeader extends BasePage {
     By aboutSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/about']");
     By brandSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/brands']");
     By newsSection = By.xpath("//li[@class='coh-list-item nav-item']/a[@href='/news']");
+    By carrersSection = By.xpath("//span[normalize-space()='Careers']");
+    By investorsSection = By.xpath("//span[normalize-space()='Investors']");
+    By paramountPlusSection = By.xpath("//a[@href='https://www.paramountplus.com/']/span[@class='coh-inline-element']");
 
 
 
@@ -44,6 +47,24 @@ public class myHeader extends BasePage {
 
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(newsSection)).click();
+ }
+
+ public void clickCareerSection(){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(carrersSection)).click();
+ }
+
+ public void clickInvestorsSection(){
+
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(investorsSection)).click();
+
+ }
+
+ public void clickParamountPlusSection(){
+
+     wait.until(ExpectedConditions.visibilityOfElementLocated(paramountPlusSection)).click();
+
  }
 
 }

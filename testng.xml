@@ -12,7 +12,11 @@
         <parameter name="Browser" value="chrome"/>
 
         <classes>
-            <class name="Org.Paramount.Tests.ParamountTests"/>
+            <class name="Org.Paramount.Tests.ParamountTests">
+
+            </class>
+
+
         </classes>
     </test>
 
